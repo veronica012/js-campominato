@@ -21,7 +21,8 @@ while(numeri_consentiti.length < possibilita && array_random.includes(numero_ute
         console.log('Hai colpito la bomba con il numero ' + numero_utente)
     }
 }
-// Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l'utente ha inserito un numero consentito; in altre parole, deve comunicare all'utente quante giocate ha fatto prima di perdere.
+// Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l'utente ha inserito un numero consentito; in altre parole, deve comunicare all'utente quante giocate ha fatto prima di perdere
+console.log('Il tuo punteggio è ' + numeri_consentiti.length);
 
 // BONUS: all'inizio della partita, il software richiede anche un livello di difficoltà all'utente che cambia il range di numeri totali (le mine saranno sempre 16):
 // con difficoltà 0=> si gioca con numeri che vanno da 1 a 100
