@@ -1,5 +1,5 @@
 function getRandom(min, max) {
-  return Math.floor(Math.random() * (max - min) ) + min;
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 // Il computer deve generare 16 numeri casuali tra 1 e 100, che saranno le "mine"
 var array_random = [];
@@ -9,7 +9,7 @@ while (array_random.length < 16) {
         array_random.push(numero_random);
     }
 }
-console.log(array_random);
+//console.log(array_random);
 
 // In seguito deve chiedere all'utente di inserire un numero alla volta, sempre compreso tra 1 e 100, che sarà la sua giocata.
 // Se il numero è presente nella lista delle mine, la partita termina, altrimenti il gioco continua chiedendo all'utente un altro numero (continua a giocare).
