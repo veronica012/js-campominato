@@ -19,7 +19,7 @@ while (array_random.length < 16) {
 }
 console.log(array_random);
 var numeri_consentiti = [];
-var possibilita = 3;
+var possibilita = 84;
 while(numeri_consentiti.length < possibilita && array_random.includes(numero_utente) == false ) {
     var numero_utente = parseInt(prompt('Inserisci un numero da 1 a 100'));// In seguito deve chiedere all'utente di inserire un numero alla volta, sempre compreso tra 1 e 100, che sarà la sua giocata.
     if (array_random.includes(numero_utente) == false ) {
