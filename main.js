@@ -23,7 +23,7 @@ var numeri_consentiti = [];
 var possibilita = range - numero_mine;
 while(numeri_consentiti.length < possibilita && array_random.includes(numero_utente) == false ) {
     var numero_utente = parseInt(prompt('Inserisci un numero da 1 a ' + range));// In seguito deve chiedere all'utente di inserire un numero alla volta, sempre compreso tra 1 e 100, che sarà la sua giocata.
-        if (numero_utente > range) {
+        if (numero_utente > range || numero_utente < range) {
             alert ('Hai inserito un numero non valido');
         }
         else if (array_random.includes(numero_utente) == false ) {
