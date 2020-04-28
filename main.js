@@ -1,27 +1,29 @@
 // BONUS: all'inizio della partita, il software richiede anche un livello di difficoltà all'utente che cambia il range di numeri totali (le mine saranno sempre 16)
-var level = prompt('Scegli un livello di difficoltà: 0, 1 o 2');
-console.log(level);
-if (level == '0') {
-    var livello_zero = getRandom(1, 100)
-} else if (level == '1') {
-    var livello_uno = getRandom(1, 80)
+var livello = prompt('Scegli un livello di difficoltà: 0, 1 o 2');
+//console.log(livello);
+var range = 0;
+var numero_mine = 16;
+if (livello == '0') {
+     range = 100;
+} else if (livello == '1') {
+     range = 80;
 } else {
-    var livello_due = getRandom(1, 50)
+    range =  50;
 }
 //Il computer deve generare 16 numeri casuali tra 1 e 100, che saranno le "mine"
 var array_random = [];
-while (array_random.length < 16) {
-    var numero_random = getRandom(1, 100);
+while (array_random.length < numero_mine) {
+    var numero_random = getRandom(1, range);
     if (array_random.includes(numero_random) == false) {
         array_random.push(numero_random);
     }
 }
 console.log(array_random);
 var numeri_consentiti = [];
-var possibilita = 84;
+var possibilita = range - numero_mine;
 while(numeri_consentiti.length < possibilita && array_random.includes(numero_utente) == false ) {
-    var numero_utente = parseInt(prompt('Inserisci un numero da 1 a 100'));// In seguito deve chiedere all'utente di inserire un numero alla volta, sempre compreso tra 1 e 100, che sarà la sua giocata.
-        if (numero_utente > 100) {
+    var numero_utente = parseInt(prompt('Inserisci un numero da 1 a ' + range));// In seguito deve chiedere all'utente di inserire un numero alla volta, sempre compreso tra 1 e 100, che sarà la sua giocata.
+        if (numero_utente > range) {
             alert ('Hai inserito un numero non valido');
         }
         else if (array_random.includes(numero_utente) == false ) {
@@ -34,6 +36,7 @@ while(numeri_consentiti.length < possibilita && array_random.includes(numero_ute
 }
 // Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che l'utente ha inserito un numero consentito; in altre parole, deve comunicare all'utente quante giocate ha fatto prima di perdere
 console.log('Il tuo punteggio è ' + numeri_consentiti.length);
+
 //Funzioni
 function getRandom(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
