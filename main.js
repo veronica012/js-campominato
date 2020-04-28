@@ -1,5 +1,8 @@
 // BONUS: all'inizio della partita, il software richiede anche un livello di difficoltà all'utente che cambia il range di numeri totali (le mine saranno sempre 16)
-var livello = prompt('Scegli un livello di difficoltà: 0, 1 o 2');
+var livello = parseInt(prompt('Scegli un livello di difficoltà: 0, 1 o 2'));
+if (isNaN(livello)) {
+    alert('Hai inserito un carattere non valido')
+}
 //console.log(livello);
 var range = 0;
 var numero_mine = 16;
@@ -24,7 +27,7 @@ var numeri_consentiti = [];
 var possibilita = range - numero_mine;
 while(numeri_consentiti.length < possibilita && controllo) {
     var numero_utente = parseInt(prompt('Inserisci un numero da 1 a ' + range));// In seguito deve chiedere all'utente di inserire un numero alla volta, sempre compreso tra 1 e 100, che sarà la sua giocata.
-        if (numero_utente > range || numero_utente < 1) {
+        if (numero_utente > range || numero_utente < 1 || isNaN(numero_utente)) {
             alert ('Hai inserito un numero non valido');
         }
         else if (array_random.includes(numero_utente) == false ) {
