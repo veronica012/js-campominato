@@ -19,11 +19,12 @@ while (array_random.length < numero_mine) {
     }
 }
 console.log(array_random);
+var controllo = true;
 var numeri_consentiti = [];
 var possibilita = range - numero_mine;
-while(numeri_consentiti.length < possibilita && array_random.includes(numero_utente) == false ) {
+while(numeri_consentiti.length < possibilita && controllo) {
     var numero_utente = parseInt(prompt('Inserisci un numero da 1 a ' + range));// In seguito deve chiedere all'utente di inserire un numero alla volta, sempre compreso tra 1 e 100, che sarà la sua giocata.
-        if (numero_utente > range || numero_utente < range) {
+        if (numero_utente > range || numero_utente < 1) {
             alert ('Hai inserito un numero non valido');
         }
         else if (array_random.includes(numero_utente) == false ) {
@@ -31,6 +32,7 @@ while(numeri_consentiti.length < possibilita && array_random.includes(numero_ute
             console.log('Complimenti! Non hai colpito nessuna bomba con il numero ' + numero_utente); //Se il numero è presente nella lista delle mine, la partita termina, altrimenti il gioco continua chiedendo all'utente un altro numero (continua a giocare).
     }
      else  {
+         controllo = false;
         console.log('Game over! Hai colpito la bomba con il numero ' + numero_utente)//partita termina quando il giocatore becca una mina, ossia inserisce un numero "vietato", oppure se raggiunge il numero massimo possibile di numeri consentiti, ossia ha inserito tutti i numeri possibili che non sono mine!
     }
 }
